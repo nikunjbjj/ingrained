@@ -23,8 +23,6 @@ httpretty==0.9.6
 hupper==1.5
 idna==2.8
 importlib-metadata==0.8
-ipython==7.2.0
-ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.13.2
 Jinja2==2.10
@@ -32,8 +30,6 @@ jmespath==0.9.3
 kiwisolver==1.0.1
 Mako==1.0.7
 MarkupSafe==1.1.0
-matplotlib==3.0.2
-numpy==1.16.1
 parso==0.3.4
 PasteDeploy==2.0.1
 path.py==11.5.0
@@ -56,8 +52,6 @@ pytz==2018.9
 repoze.lru==0.7
 requests==2.21.0
 s3transfer==0.2.0
-scikit-learn==0.20.2
-scipy==1.2.1
 simplegeneric==0.8.1
 six==1.12.0
 smart-open==1.8.0
