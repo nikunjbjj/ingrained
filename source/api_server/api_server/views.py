@@ -210,3 +210,144 @@ def get_available_meals(request):
 
     result['response'] = return_data
     return make_response(request, result)
+
+
+@view_config(route_name='meal_details_page/get_meal_details.json', renderer='json')
+def get_meal_details(request):
+    """
+    http://http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/meal_details_page/get_meal_details.json?data=
+    {
+        "meal_id" : "meal_id1"
+    }
+
+    This methods returns available meal detail based on provided id.
+    """
+    # TODO: Add appropriate URLs.
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if data.get('meal_id') != 'meal_id1':
+        result['status'] = False
+        result['messages'].append('meal_id is a required argument and accepted value is meal_id1')
+        return make_response(request, result)
+
+    return_data = {
+                    "meal_id1": {
+                        "meal_id": "meal_id1",
+                        "name": "Name",
+                        "rating": 3,
+                        "price": 4,
+                        "dates": ["02102019", "02112019", "02122019", "02132019"],
+                        "start_time": "1900",
+                        "end_time": "2100",
+                        "location": "location1",
+                        "image_urls": ["meal_image_url1", "meal_image_url2", "meal_image_url3"],
+                        "menu": {
+                            "item1": "description-1",
+                            "item2": "description-2",
+                            "item3": "description-3"
+                        }
+                    }
+                }
+    result['response'] = return_data
+    return make_response(request, result)
+
+
+@view_config(route_name='meal_details_page/get_reviews_of_meal.json', renderer='json')
+def get_reviews_of_meal(request):
+    """
+    http://http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/meal_details_page/get_reviews_of_meal.json?data=
+    {
+        "meal_id" : "meal_id1"
+    }
+
+    This methods returns reviews of a meal provided an id.
+    """
+    # TODO: Add appropriate URLs.
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if data.get('meal_id') != 'meal_id1':
+        result['status'] = False
+        result['messages'].append('meal_id is a required argument and accepted value is meal_id1')
+        return make_response(request, result)
+
+    return_data = {
+                    "review_id1": {
+                        "review_id": "review_id1",
+                        "review_title": "This is review title",
+                        "review": "This is a review",
+                        "rating": 4,
+                        "user_name": "Name",
+                        "user_url": "user_pic_url"
+                    },
+                    "review_id2": {
+                        "review_id": "review_id2",
+                        "review_title": "This is review title",
+                        "review": "This is a review",
+                        "rating": 5,
+                        "user_name": "Name",
+                        "user_url": "user_pic_url"
+                    },
+                    "review_id3": {
+                        "review_id": "review_id3",
+                        "review_title": "This is review title",
+                        "review": "This is a review",
+                        "rating": 4,
+                        "user_name": "Name",
+                        "user_url": "user_pic_url"
+                    }
+                }
+    result['response'] = return_data
+    return make_response(request, result)
+
+
+# @view_config(route_name='meal_details_page/book_meal.json', renderer='json')
+# def book_meal(request):
+#     """
+#     http://http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/meal_details_page/book_meal.json?data=
+#     {
+#         "name": "Name",
+#         "user_id": "UserID",
+#         "number_of_people" : 2,
+#         "date": "02102019",
+#         "meal_id": "meal_id1"
+#     }
+#
+#
+#     This methods returns reviews of a meal provided an id.
+#     """
+#     # TODO: Add appropriate URLs.
+#     result = sample_api_response()
+#     data = json.loads(request.GET.get('data'))
+#     if data.get('meal_id') != 'meal_id1':
+#         result['status'] = False
+#         result['messages'].append('meal_id is a required argument and accepted value is meal_id1')
+#         return make_response(request, result)
+#
+#     return_data = {
+#                     "review_id1": {
+#                         "review_id": "review_id1",
+#                         "review_title": "This is review title",
+#                         "review": "This is a review",
+#                         "rating": 4,
+#                         "user_name": "Name",
+#                         "user_url": "user_pic_url"
+#                     },
+#                     "review_id2": {
+#                         "review_id": "review_id2",
+#                         "review_title": "This is review title",
+#                         "review": "This is a review",
+#                         "rating": 5,
+#                         "user_name": "Name",
+#                         "user_url" : "user_pic_url"
+#                     },
+#                     "review_id3": {
+#                         "review_id": "review_id3",
+#                         "review_title": "This is review title",
+#                         "review": "This is a review",
+#                         "rating": 4,
+#                         "user_name": "Name",
+#                         "user_url": "user_pic_url"
+#                     }
+#                 }
+#     result['response'] = return_data
+#     return make_response(request, result)
