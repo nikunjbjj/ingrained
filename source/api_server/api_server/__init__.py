@@ -43,7 +43,7 @@ def main(global_config, **settings):
     config.add_route('meal_details_page/get_meal_details.json', '/meal_details_page/get_meal_details.json')
     config.add_route('meal_details_page/get_reviews_of_meal.json', '/meal_details_page/get_reviews_of_meal.json')
     config.add_route('meal_details_page/book_meal.json', '/meal_details_page/book_meal.json')
-    # config.add_route('meal_details_page/post_meal.json', '/meal_details_page/post_meal.json')
+    config.add_route('meal_details_page/post_meal.json', '/meal_details_page/post_meal.json')
     config.add_route('home', '/')
     config.scan()
     return config.make_wsgi_app()
