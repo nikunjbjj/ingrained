@@ -84,7 +84,7 @@ def signup(request):
         result['status'] = False
         result['messages'].append('Request payload is not a valid json: %s' % e)
         return make_response(request, result)
-    required_keys = ['first_name', 'last_name', 'confirm_password',
+    required_keys = ['first_name', 'last_name', 'user_name', 'confirm_password',
                      'email', 'create_password', 'city']
 
     # Check that all the keys exist.
