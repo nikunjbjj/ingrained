@@ -355,3 +355,141 @@ def post_meal(request):
     result['response'] = return_data
     return make_response(request, result)
 
+
+@view_config(route_name='meal_details_page/delete_meal.json', renderer='json')
+def delete_meal(request):
+    """
+    http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/meal_details_page/delete_meal.json?data=
+    {
+        "meal_id" : "meal_id1"
+    }
+    This methods is called when people want to delete a posted meal.
+    """
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if "meal_id" not in data:
+        result['status'] = False
+        result['messages'].append('meal_id is a required argument')
+        return make_response(request, result)
+    return make_response(request, result)
+
+
+@view_config(route_name='host_page/host_meta_data.json', renderer='json')
+def host_meta_data(request):
+    """
+    http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/host_page/host_meta_data.json?data=
+    {
+        "user_name" : "xyz",
+        "details": {
+            "<key>": "<value>"
+        }
+    }
+    This methods is called when people fill in details to be a host.
+    """
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if "user_name" not in data:
+        result['status'] = False
+        result['messages'].append('user_name is a required argument')
+        return make_response(request, result)
+    return make_response(request, result)
+
+
+@view_config(route_name='guest_page/my_past_meals.json', renderer='json')
+def guest_past_meals(request):
+    """
+    http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/guest_page/my_past_meals.json?data=
+    {
+        "user_name" : "xyz"
+    }
+    This methods is used to retrieve past meals of a guest.
+    """
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if "user_name" not in data:
+        result['status'] = False
+        result['messages'].append('user_name is a required argument')
+        return make_response(request, result)
+
+    return_data = {
+        "meal_id1": {
+            "meal_id": "meal_id1",
+            "name": "Name",
+            "rating": 5,
+            "price": 5,
+            "date": "02012019",
+            "start_time": "0700",
+            "end_time": "0900",
+            "location": "location1",
+            "top_image_url": "meal_image_url"
+        },
+        "meal_id2": {
+            "name": "meal_id2",
+            "rating": 5,
+            "price": 5,
+            "date": "02102019",
+            "start_time": "0530",
+            "end_time": "0730",
+            "location": "location2",
+            "top_image_url": "meal_image_url"
+        },
+        "meal_id3": {
+            "name": "meal_id3",
+            "rating": 5,
+            "price": 5,
+            "date": "03012019",
+            "start_time": "1000",
+            "end_time": "1300",
+            "location": "location3",
+            "top_image_url": "meal_image_url"
+        }
+    }
+
+    result['response'] = return_data
+    return make_response(request, result)
+
+
+@view_config(route_name='guest_page/my_past_reviews.json', renderer='json')
+def guest_past_reviews(request):
+    """
+    http://ec2-3-16-149-55.us-east-2.compute.amazonaws.com:6543/guest_page/my_past_reviews.json?data=
+    {
+        "user_name" : "xyz"
+    }
+    This methods is used to retrieve past reviews of a guest.
+    """
+    result = sample_api_response()
+    data = json.loads(request.GET.get('data'))
+    if "user_name" not in data:
+        result['status'] = False
+        result['messages'].append('user_name is a required argument')
+        return make_response(request, result)
+
+    return_data = {
+        "review_id1": {
+            "review_id": "review_id1",
+            "review_title": "This is review title",
+            "review": "This is a review",
+            "rating": 4,
+            "user_name": "Name",
+            "user_url": "user_pic_url"
+        },
+        "review_id2": {
+            "review_id": "review_id2",
+            "review_title": "This is review title",
+            "review": "This is a review",
+            "rating": 5,
+            "user_name": "Name",
+            "user_url": "user_pic_url"
+        },
+        "review_id3": {
+            "review_id": "review_id3",
+            "review_title": "This is review title",
+            "review": "This is a review",
+            "rating": 4,
+            "user_name": "Name",
+            "user_url": "user_pic_url"
+        }
+    }
+    result['response'] = return_data
+    return make_response(request, result)
