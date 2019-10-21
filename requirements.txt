@@ -62,7 +62,7 @@ venusian==1.2.0
 waitress==1.2.1
 wcwidth==0.1.7
 WebOb==1.8.5
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 zipp==0.3.3
 zope.deprecation==4.4.0
 zope.interface==4.6.0
