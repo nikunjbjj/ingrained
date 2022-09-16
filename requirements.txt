@@ -28,7 +28,7 @@ jedi==0.13.2
 Jinja2==2.10
 jmespath==0.9.3
 kiwisolver==1.0.1
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.1.0
 parso==0.3.4
 PasteDeploy==2.0.1
